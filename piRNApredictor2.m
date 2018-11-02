@@ -1,7 +1,7 @@
 cvx_setup()
 addpath('./SVMMDRBF');
 addpath('./libsvm-3.20/matlab');
-load traindata2.mat
+load feature2.mat
 
 
 system('python ./Pse-in-One-2.0/psee.pyc ./data.txt RNA PC-PseDNC-General -w 0.2 -lamada 2 -i propChosen.txt -f tab -labels 0 -out PC2.txt');
