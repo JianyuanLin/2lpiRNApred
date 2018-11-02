@@ -1,0 +1,33 @@
+2lpiRNApred Program(python)
+Yun Zuo, Jianyuan Lin
+10/29/2018
+
+GENERAL INFORMATION
+---------------------------------------------------------------------
+2lpiRNApred is a 2-layer integrated program for identifying piRNAs in the first layer and determining if piRNAs have the function of instructing target mRNA deadenylation in the second layer.
+
+ENVIRONMENT
+---------------------------------------------------------------------
+python 2.7
+Matlab 2014
+numpy
+
+You can install numpy through command "pip install numpy" or "sudo pip install numpy".
+
+USAGE NOTES
+---------------------------------------------------------------------
+You should copy your data file to the root path and rename it as "data.txt".Then you run piRNApredictor.m or piRNApredictor2.m by MATLAB and the result will be saved as file "result.txt".Where the piRNApredictor.m is the first layer and piRNApredictor2.m is the second layer.
+
+CONTACT INFORMATION
+---------------------------------------------------------------------
+Yun Zuo,
+Department of Information science and technology, Xiamen University, Xiamen, P.R.China
+Email: zydpdl123@163.com
+
+Jianyuan Lin,
+Department of Information science and technology, Xiamen University, Xiamen, P.R.China
+Email: linjianyuan@stu.xmu.edu.cn
+
+Prof. Xiangrong Liu,
+Department of Information science and technology, Xiamen University, Xiamen, P.R.China
+Email: xrliu@xmu.edu.cn
