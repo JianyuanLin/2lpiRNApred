@@ -1,15 +1,20 @@
-
+clc;
 
 addpath('./SVMMDRBF');
 addpath('./libsvm-3.20/matlab');
 addpath('./cvx-w64/cvx');
 load feature.mat
 cvx_setup()
-system('python ./Pse-in-One-2.0/psee.pyc ./data.txt RNA PC-PseDNC-General -w 0.5 -lamada 6 -i propChosen.txt -f tab -labels 0 -out PC3.txt');
-system('python ./Pse-in-One-2.0/psee.pyc ./data.txt RNA PC-PseDNC-General -w 0.2 -lamada 9 -i propChosen.txt -f tab -labels 0 -out PC7.txt');
-system('python ./Pse-in-One-2.0/psee.pyc ./data.txt RNA PC-PseDNC-General -w 0.2 -lamada 7 -i propChosen.txt -f tab -labels 0 -out PC8.txt');
-system('python ./Pse-in-One-2.0/nac.pyc ./data.txt RNA Kmer -k 1 -f tab -labels 0 -out Kmer1.txt');
-system('python ./Pse-in-One-2.0/nac.pyc ./data.txt RNA Kmer -k 3 -f tab -labels 0 -out Kmer3.txt');
+
+%system('dir')
+[FileName, PathName, FilterIndex]=uigetfile('.txt','Select file to open');
+data_file = [PathName, FileName];
+data_file
+system(['python ./Pse-in-One-2.0/psee.pyc ', data_file, ' RNA PC-PseDNC-General -w 0.5 -lamada 6 -i propChosen.txt -f tab -labels 0 -out PC3.txt']);
+system(['python ./Pse-in-One-2.0/psee.pyc ', data_file, ' RNA PC-PseDNC-General -w 0.2 -lamada 9 -i propChosen.txt -f tab -labels 0 -out PC7.txt']);
+system(['python ./Pse-in-One-2.0/psee.pyc ', data_file, ' RNA PC-PseDNC-General -w 0.2 -lamada 7 -i propChosen.txt -f tab -labels 0 -out PC8.txt']);
+system(['python ./Pse-in-One-2.0/nac.pyc ', data_file, ' RNA Kmer -k 1 -f tab -labels 0 -out Kmer1.txt']);
+system(['python ./Pse-in-One-2.0/nac.pyc ', data_file, ' RNA Kmer -k 3 -f tab -labels 0 -out Kmer3.txt']);
 
 PC3 = load('PC3.txt');
 PC7 = load('PC7.txt');

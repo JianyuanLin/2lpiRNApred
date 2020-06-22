@@ -3,20 +3,22 @@ addpath('./SVMMDRBF');
 addpath('./libsvm-3.20/matlab');
 load feature2.mat
 
+[FileName, PathName, FilterIndex]=uigetfile('.txt','Select file to open');
+data_file = [PathName, FileName];
+data_file
+system(['python ./Pse-in-One-2.0/psee.pyc ',data_file, ' RNA PC-PseDNC-General -w 0.2 -lamada 2 -i propChosen.txt -f tab -labels 0 -out PC2.txt']);
+system(['python ./Pse-in-One-2.0/psee.pyc ',data_file, ' RNA PC-PseDNC-General -w 0.5 -lamada 7 -i propChosen.txt -f tab -labels 0 -out PC13.txt']);
+system(['python ./Pse-in-One-2.0/psee.pyc ',data_file, ' RNA PC-PseDNC-General -w 0.8 -lamada 7 -i propChosen.txt -f tab -labels 0 -out PC14.txt']);
+system(['python ./Pse-in-One-2.0/psee.pyc ',data_file, ' RNA PC-PseDNC-General -w 0.1 -lamada 8 -i propChosen.txt -f tab -labels 0 -out PC15.txt']);
+system(['python ./Pse-in-One-2.0/psee.pyc ',data_file, ' RNA PC-PseDNC-General -w 0.4 -lamada 9 -i propChosen.txt -f tab -labels 0 -out PC16.txt']);
 
-system('python ./Pse-in-One-2.0/psee.pyc ./data.txt RNA PC-PseDNC-General -w 0.2 -lamada 2 -i propChosen.txt -f tab -labels 0 -out PC2.txt');
-system('python ./Pse-in-One-2.0/psee.pyc ./data.txt RNA PC-PseDNC-General -w 0.5 -lamada 7 -i propChosen.txt -f tab -labels 0 -out PC13.txt');
-system('python ./Pse-in-One-2.0/psee.pyc ./data.txt RNA PC-PseDNC-General -w 0.8 -lamada 7 -i propChosen.txt -f tab -labels 0 -out PC14.txt');
-system('python ./Pse-in-One-2.0/psee.pyc ./data.txt RNA PC-PseDNC-General -w 0.1 -lamada 8 -i propChosen.txt -f tab -labels 0 -out PC15.txt');
-system('python ./Pse-in-One-2.0/psee.pyc ./data.txt RNA PC-PseDNC-General -w 0.4 -lamada 9 -i propChosen.txt -f tab -labels 0 -out PC16.txt');
+system(['python ./Pse-in-One-2.0/nac.pyc ',data_file, ' RNA Kmer -k 3 -f tab -labels 0 -out Kmer3.txt']);
 
-system('python ./Pse-in-One-2.0/nac.pyc ./data.txt RNA Kmer -k 3 -f tab -labels 0 -out Kmer3.txt');
+system(['python ./Pse-in-One-2.0/acc.pyc ',data_file, ' RNA GAC -lamada 9 -i propChosen.txt -f tab -labels 0 -out GAC.txt']);
 
-system('python ./Pse-in-One-2.0/acc.pyc ./data.txt RNA GAC -lamada 9 -i propChosen.txt -f tab -labels 0 -out GAC.txt');
+system(['python ./Pse-in-One-2.0/acc.pyc ',data_file, ' RNA NMBAC -lamada 3 -i propChosen.txt -f tab -labels 0 -out NMBAC.txt']);
 
-system('python ./Pse-in-One-2.0/acc.pyc ./data.txt RNA NMBAC -lamada 3 -i propChosen.txt -f tab -labels 0 -out NMBAC.txt');
-
-system('python ./Pse-in-One-2.0/psee.pyc ./data.txt RNA SC-PseDNC-General -w 0.4 -lamada 1 -i propChosen.txt -f tab -labels 0 -out SC-PseDNC-General.txt');
+system(['python ./Pse-in-One-2.0/psee.pyc ',data_file, ' RNA SC-PseDNC-General -w 0.4 -lamada 1 -i propChosen.txt -f tab -labels 0 -out SC-PseDNC-General.txt']);
 
 
 % 
