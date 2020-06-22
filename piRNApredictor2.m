@@ -74,7 +74,7 @@ for i=1:n
     preENCRF(i,1)=class(indexmax(i,1));
     predict_label(i)= preENCRF(i,1);
 end
-[Name seq]=fastaread('data.txt');
+[Name seq]=fastaread(data_file);
 fid = fopen('result.txt', 'wt');
 for m=1:n    
     if predict_label(m)==1

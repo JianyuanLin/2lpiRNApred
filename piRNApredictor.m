@@ -56,7 +56,7 @@ for i=1:n
     predict_label(i)= preENCRF(i,1);
 end
 
-[Name seq]=fastaread('data.txt');
+[Name seq]=fastaread(data_file);
 fid = fopen('result.txt', 'wt');
 uu=0;
 for m=1:n    
